@@ -1,0 +1,29 @@
+.uploaded {
+  display: block;
+}
+.uploaded img {
+  width: 70px;
+  cursor: pointer;
+}
+.uploaded input {
+  display: none;
+}
+.preview-image {
+  width: 100%;
+  position: relative;
+}
+
+.preview-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.preview-image button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: red;
+  /* display: none; */
+}
