@@ -24,11 +24,24 @@ if (file_exists(__DIR__ . "/autoload.php")) {
         //get form valus
         $name = $_POST['name'];
         $phone = $_POST['phone'];
-        $profile = $_FILES['profile'];
+
+        //file Manage
+        $tmp_name = $_FILES['profile']['tmp_name'];
+        $file_name = $_FILES['profile']['name'];
+
+        //get file extantion
+        $file_arr = explode('.', $file_name);
+        $file_ext = strtolower(end($file_arr));
+
+        // name and phone for file Genarator
+        $new_file_genaret =  $name . '_' . $phone . '.' . $file_ext;
 
         if (empty($name) || empty($phone)) {
             $msg = createAlert("All fields are requerd");
         } else {
+
+            move_uploaded_file($tmp_name, 'assets/image/' . $new_file_genaret);
+
             $msg = createAlert("Data Submit", "success");
             reset_form();
         }
